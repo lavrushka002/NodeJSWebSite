@@ -16,7 +16,7 @@
 .hello{
   color: #111;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 250px;
+  font-size: 18vw;
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 1;
@@ -29,7 +29,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  bottom: 200px;
+  bottom: 12vw;
 }
 
 .button {
@@ -74,7 +74,7 @@
 body {
   background: linear-gradient(-45deg, #ffffff, #e61111, #b839cc);
   background-size: 600% 600%;
-
+  overflow-x: hidden;
   -webkit-animation: AnimationName 11s ease infinite;
   -moz-animation: AnimationName 11s ease infinite;
   animation: AnimationName 11s ease infinite;

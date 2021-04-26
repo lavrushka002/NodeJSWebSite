@@ -23,7 +23,7 @@ router.get('/auth', function(req,res){
 
 
 //add the router
-app.use('/auth', router);
+app.use('/', router);
 app.listen(process.env.port || 80);
 
 console.log('Running at Port 80');

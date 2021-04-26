@@ -9,53 +9,32 @@
 
 <body>
 
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">ABOUT</a>
+  <a href="#">MY</a>
+  <a href="#">BIG</a>
+  <a href="#">SOUL</a>
+</div>
 
-  <!-- <div id="path">
-    <div id="brick"></div>
+<span style="font-family: 'Helvetica Neue', sans-serif;font-size: 50px;font-weight: bold;cursor:pointer;" onclick="openNav()">&#9776;</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<div class="main-text">
+  <p>VESELKOV DANIL</p>
+  <div class="center">
+    <button onclick="location.href='/nextpage'" class="button" style="vertical-align:middle"><span>NEXT </span></button>
   </div>
-
-  <script>
-    function makeEaseOut(timing) {
-      return function(timeFraction) {
-        return 1 - timing(1 - timeFraction);
-      }
-    }
-
-    function bounce(timeFraction) {
-      for (let a = 0, b = 1, result; 1; a += b, b /= 2) {
-        if (timeFraction >= (7 - 4 * a) / 11) {
-          return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
-        }
-      }
-    }
-
-    let bounceEaseOut = makeEaseOut(bounce);
-
-    brick.onclick = function() {
-      animate({
-        duration: 5000,
-        timing: bounceEaseOut,
-        draw: function(progress) {
-          brick.style.left = progress * 500 + 'px';
-        }
-      });
-    };
-  </script>
-
-
-<div class="loader">
-  <span class="square1"></span>
-  <span class="square2"></span>
-  <span class="square3"></span>
-  <span class="square4"></span>
-</div> -->
-
-  <div class="hello">
-    <p>VESELKOV DANIL</p>
-    <div class="center">
-      <button onclick="location.href='/nextpage'" class="button" style="vertical-align:middle"><span>Lets Go </span></button>
-    </div>
-  </div>
+</div>
 
 </body>
 

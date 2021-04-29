@@ -5,25 +5,56 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <script src="https://js.cx/libs/animate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">ABOUT</a>
-  <a href="#">MY</a>
-  <a href="#">BIG</a>
-  <a href="#">SOUL</a>
-</div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">ABOUT</a>
+    <a href="#">MY</a>
+    <a href="#">BIG</a>
+    <a href="#">SOUL</a>
+  </div>
 
-<span style="font-family: 'Helvetica Neue', sans-serif;font-size: 50px;font-weight: bold;cursor:pointer;" onclick="openNav()">&#9776;</span>
+  <span style="font-family: 'Helvetica Neue', sans-serif;font-size: 50px;font-weight: bold;cursor:pointer;"
+    onclick="openNav()">&#9776;</span>
 
-<div class="main-text">
-  <p>AUTHENTIFICATE</p>
-  <div class="center">
-</div>
+  <div class="main-text">
+    <p>LOGIN</p>
+    <input type="text" name='login' placeholder="Username" id="username">
+    <input type="password" name='password' placeholder="Password" id="password">
+    <input type="button" class="login_send" value="Sign In">
+  </div>
+
+  <div class="shadow"></div>
 
 </body>
+
+<script>
+  $('.login_send').click(() => {
+    var data = {
+      login: $("#username").val(),
+      pass: $('#password').val()
+    }
+
+    $.ajax({
+      url: '/auth',
+      method: 'POST',
+      dataType: 'json',
+      data: data
+    }).then((d) => {
+      console.log(d.ok);
+      if(d.ok == 'ok'){
+        document.location = '/';
+      }else{
+          alert('INCORRECT');
+      }
+    })
+  })
+</script>
+
 
 </html>

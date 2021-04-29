@@ -1,11 +1,17 @@
 const express = require('express');
+const path = require('path');
+const body_parser = require("body-parser");
 //var favicon = require('serve-favicon');
 const app = express();
-const path = require('path');
+
+
+app.use(body_parser.urlencoded({extended:false}));
+app.use(body_parser.json());
+
+
 const router = express.Router();
 //app.use(favicon(__dirname + '/favicon.ico'));
 app.use(express.static(__dirname+"/"))
-
 router.get('/', function(req,res){
   res.sendFile(path.join(__dirname+'/index.html'));
   //__dirname : It will resolve to your project folder.
@@ -21,6 +27,13 @@ router.get('/auth', function(req,res){
   //__dirname : It will resolve to your project folder.
 });
 
+app.post('/auth', function (req, res) {
+  if(req.body.login == 'admin' && req.body.pass == 'admin'){
+    res.send({ok:'ok'});
+  }else{
+    res.send({ok:'notok'});
+  }
+});
 
 //add the router
 app.use('/', router);

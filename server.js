@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
-const body_parser = require("body-parser");
+
 //var favicon = require('serve-favicon');
 const app = express();
 
 
-app.use(body_parser.urlencoded({extended:false}));
-app.use(body_parser.json());
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 
 
 const router = express.Router();
@@ -28,6 +28,7 @@ router.get('/auth', function(req,res){
 });
 
 app.post('/auth', function (req, res) {
+  console.log(req.body);
   if(req.body.login == 'admin' && req.body.pass == 'admin'){
     res.send({ok:'ok'});
   }else{
